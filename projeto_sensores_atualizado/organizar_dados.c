@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,10 +13,10 @@ typedef struct {
     char valor[MAX_VALOR];
 } Leitura;
 
-int comparar_por_timestamp(const void *a, const void *b) {
+int comparar_por_timestamp_decrescente(const void *a, const void *b) {
     Leitura *la = (Leitura *)a;
     Leitura *lb = (Leitura *)b;
-    return (la->timestamp - lb->timestamp);
+    return (lb->timestamp - la->timestamp);
 }
 
 int main(int argc, char *argv[]) {
@@ -31,17 +32,27 @@ int main(int argc, char *argv[]) {
     }
 
     Leitura leituras[MAX_SENSORES];
-    int total = 0;
+    int total = 0, linha = 0;
 
-    while (fscanf(entrada, "%ld %s %s",
-            &leituras[total].timestamp,
-            leituras[total].id_sensor,
-            leituras[total].valor) == 3) {
-        total++;
-        if (total >= MAX_SENSORES) {
-            printf("Número máximo de leituras excedido.\n");
-            break;
+    while (!feof(entrada)) {
+        linha++;
+        char buffer[256];
+        if (!fgets(buffer, sizeof(buffer), entrada)) break;
+
+        char id[MAX_ID], val[MAX_VALOR];
+        long ts;
+        int campos = sscanf(buffer, "%ld %s %s", &ts, id, val);
+
+        if (campos != 3 || ts <= 0 || strlen(id) == 0 || strlen(val) == 0) {
+            printf("Linha %d inválida: %s", linha, buffer);
+            continue;
         }
+
+        leituras[total].timestamp = ts;
+        strcpy(leituras[total].id_sensor, id);
+        strcpy(leituras[total].valor, val);
+        total++;
+        if (total >= MAX_SENSORES) break;
     }
     fclose(entrada);
 
@@ -72,7 +83,7 @@ int main(int argc, char *argv[]) {
             }
         }
 
-        qsort(lista_sensor, count, sizeof(Leitura), comparar_por_timestamp);
+        qsort(lista_sensor, count, sizeof(Leitura), comparar_por_timestamp_decrescente);
 
         char nome_arquivo[50];
         sprintf(nome_arquivo, "%s.txt", sensores[i]);

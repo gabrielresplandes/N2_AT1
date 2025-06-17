@@ -1,8 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 #include <limits.h>
+#include <math.h>
 
 #define MAX_ID 32
 #define MAX_VALOR 64
@@ -50,14 +51,14 @@ int main(int argc, char *argv[]) {
             melhor = meio;
         }
 
-        if (leituras[meio].timestamp < alvo)
+        if (leituras[meio].timestamp > alvo)
             esquerda = meio + 1;
         else
             direita = meio - 1;
     }
 
     if (melhor != -1) {
-        printf("Leitura mais próxima:\n%ld %s %s\n", 
+        printf("Leitura mais próxima:\n%ld %s %s\n",
                leituras[melhor].timestamp,
                leituras[melhor].id_sensor,
                leituras[melhor].valor);

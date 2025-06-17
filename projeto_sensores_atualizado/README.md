@@ -1,4 +1,4 @@
-# Sistema de Processamento de Sensores Industriais
+# Projeto: Sistema de Processamento de Sensores Industriais
 
 ## Descrição
 Este projeto simula uma planta industrial inteligente que coleta dados de sensores distribuídos na linha de produção. As leituras são registradas de forma desorganizada em um único arquivo bruto. Este sistema é composto por 3 programas desenvolvidos em linguagem C:
@@ -103,6 +103,8 @@ time_t gerar_timestamp_aleatorio(struct tm * inicial, struct tm * final);
 ---
 
 ## Autor
-Aluno responsável: Gabriel Morais Resplandes Sirqueira 
-Universidade Católica de Brasília
+Aluno responsável: Gabriel Resplandes  
+Data de entrega: 16/06  
+Disciplina: Programação em C  
+Instituição: [NOME DA INSTITUIÇÃO AQUI]
 
