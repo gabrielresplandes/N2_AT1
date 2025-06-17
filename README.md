@@ -1,4 +1,4 @@
-# Projeto: Sistema de Processamento de Sensores Industriais
+# Sistema de Processamento de Sensores Industriais
 
 ## Descrição
 Este projeto simula uma planta industrial inteligente que coleta dados de sensores distribuídos na linha de produção. As leituras são registradas de forma desorganizada em um único arquivo bruto. Este sistema é composto por 3 programas desenvolvidos em linguagem C:
