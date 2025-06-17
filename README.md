@@ -103,8 +103,6 @@ time_t gerar_timestamp_aleatorio(struct tm * inicial, struct tm * final);
 ---
 
 ## Autor
-Aluno responsável: Gabriel Resplandes  
-Data de entrega: 16/06  
-Disciplina: Programação em C  
-Instituição: [NOME DA INSTITUIÇÃO AQUI]
+Aluno responsável: Gabriel Morais Resplandes Sirqueira
+Instituição: [Universidade Católica de Brasília]
 
