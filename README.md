@@ -104,5 +104,6 @@ time_t gerar_timestamp_aleatorio(struct tm * inicial, struct tm * final);
 
 ## Autor
 Aluno responsável: Gabriel Morais Resplandes Sirqueira
-Instituição: [Universidade Católica de Brasília]
+
+Universidade Católica de Brasília
 
